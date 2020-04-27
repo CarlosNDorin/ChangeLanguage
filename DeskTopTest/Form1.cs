@@ -30,7 +30,7 @@ namespace DeskTopTest
             InitializeComponent();
             Task.Factory.StartNew(() =>
             {
-                while (true)
+                while (false)
                 {
                     System.Threading.Thread.Sleep(500);
                     HandleCurrentLanguage();

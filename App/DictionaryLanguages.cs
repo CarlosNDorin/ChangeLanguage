@@ -96,9 +96,16 @@ namespace App
 
             foreach (char c in TextToTranslate)
             {
-                int key = from[Char.ToLower(c)];
-                translation += to.First(x => x.Value == key).Key; 
-                // Return the first value of all the values of the dictionary where the value is equal to the key, and return the key of this value.
+                if (from.ContainsKey(Char.ToLower(c))) // if the char is not mapped copy as is.
+                {
+                    int key = from[Char.ToLower(c)];
+                    translation += to.First(x => x.Value == key).Key;
+                    // Return the first value of all the values of the dictionary where the value is equal to the key, and return the key of this value.
+                }
+                else
+                {
+                    translation += Char.ToLower(c);
+                }
             }
             return translation;
         }

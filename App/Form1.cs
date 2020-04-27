@@ -13,18 +13,27 @@ using System.Windows.Forms;
 
 namespace App
 {
-    public partial class Form1 : Form
+    partial class Form1 : Form
     {
-        public static DictionaryManagment dictionaryManagment;
+
+       
+        public static CopyPaste copyPaste;
+
         public Form1()
         {
             InitializeComponent();
-            dictionaryManagment = new DictionaryManagment();
+            copyPaste = new CopyPaste();
         }
 
         private void btn_Translate_Click(object sender, EventArgs e)
         {
-           txtBox_Translated.Text = dictionaryManagment.Translate("ENG","HEB",txtBox_ToTranslate.Text);
+       
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            copyPaste.RunCopying();
+        }
+
     }
 }

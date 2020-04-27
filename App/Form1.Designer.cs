@@ -64,6 +64,7 @@ namespace App
             this.Controls.Add(this.txtBox_Translated);
             this.Controls.Add(this.txtBox_ToTranslate);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -71,10 +72,10 @@ namespace App
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtBox_ToTranslate;
+       
         private System.Windows.Forms.TextBox txtBox_Translated;
         private System.Windows.Forms.Button btn_Translate;
+        public System.Windows.Forms.TextBox txtBox_ToTranslate;
     }
 }
 
