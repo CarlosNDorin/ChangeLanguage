@@ -13,6 +13,7 @@ namespace App
     public class CopyPaste : System.Windows.Forms.Form
     {
         public static DictionaryManagment dictionaryManagment;
+        KeyboardListener keyboardListener;
         private static bool _copied = false; // Perhaps I can delete it.. ?
         static string _stringCopy;
         static string _stringTranslated;
@@ -58,7 +59,7 @@ namespace App
         {
             ClipboardMonitor.Start();
             ClipboardMonitor.OnClipboardChange += new ClipboardMonitor.OnClipboardChangeEventHandler(ClipboardMonitor_OnClipboardChange);
-            KeyboardListener keyboardListener = new KeyboardListener();
+            keyboardListener = new KeyboardListener();
             keyboardListener.KeyUp += NewKeyPressed;
         }
 
@@ -123,6 +124,7 @@ namespace App
         public void StopMonitoring()
         {
             ClipboardMonitor.Stop();
+            keyboardListener.Dispose();
         }
     }
 }

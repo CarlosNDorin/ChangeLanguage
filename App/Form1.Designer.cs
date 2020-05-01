@@ -64,6 +64,7 @@ namespace App
             this.Controls.Add(this.txtBox_Translated);
             this.Controls.Add(this.txtBox_ToTranslate);
             this.Name = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

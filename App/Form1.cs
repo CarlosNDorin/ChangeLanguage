@@ -16,15 +16,12 @@ namespace App
     partial class Form1 : Form
     {
 
-       
+
         public static CopyPaste copyPaste;
 
         public Form1()
         {
             InitializeComponent();
-           
-            
-
         }
         private void languageChange(object sender, InputLanguageChangedEventArgs e)
         {
@@ -33,7 +30,7 @@ namespace App
         private void btn_Translate_Click(object sender, EventArgs e)
         {
             MessageBox.Show(InputLanguage.CurrentInputLanguage.LayoutName);
-            copyPaste.TranslateText("ENG","HEB");
+            copyPaste.TranslateText("ENG", "HEB");
             copyPaste.SetTextClipboard();
         }
 
@@ -44,10 +41,9 @@ namespace App
             this.InputLanguageChanged += new InputLanguageChangedEventHandler(languageChange);
         }
 
-        private void Form1_Leave(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             copyPaste.StopMonitoring();
-            Close();
         }
     }
 }
