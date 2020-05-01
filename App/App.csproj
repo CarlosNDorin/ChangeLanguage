@@ -43,10 +43,13 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClipboardMonitor.cs" />
-    <Compile Include="CopyPaste.cs" />
+    <Compile Include="CopyPaste.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DictionaryLanguages.cs" />
     <Compile Include="DictionaryManagment.cs" />
     <Compile Include="Form1.cs">

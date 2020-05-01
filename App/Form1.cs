@@ -22,18 +22,32 @@ namespace App
         public Form1()
         {
             InitializeComponent();
-            copyPaste = new CopyPaste();
-        }
+           
+            
 
+        }
+        private void languageChange(object sender, InputLanguageChangedEventArgs e)
+        {
+            copyPaste.ChangeLanguage(InputLanguage.CurrentInputLanguage.Culture.ThreeLetterWindowsLanguageName);
+        }
         private void btn_Translate_Click(object sender, EventArgs e)
         {
-       
+            MessageBox.Show(InputLanguage.CurrentInputLanguage.LayoutName);
+            copyPaste.TranslateText("ENG","HEB");
+            copyPaste.SetTextClipboard();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            copyPaste = new CopyPaste();
             copyPaste.RunCopying();
+            this.InputLanguageChanged += new InputLanguageChangedEventHandler(languageChange);
         }
 
+        private void Form1_Leave(object sender, EventArgs e)
+        {
+            copyPaste.StopMonitoring();
+            Close();
+        }
     }
 }
